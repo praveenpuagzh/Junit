@@ -1,44 +1,54 @@
 package org.demo;
 
-import static org.junit.Assert.*;
-
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import org.base.Baseclass;
 import org.junit.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.pages.loginpage;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class Trial {
+public class Trial extends Baseclass{
 
 	@Test
 	public void test() {
-		System.out.println("this is test");
+		launchurl("https://www.facebook.com/");
+		loginpage p = new loginpage();
+		filltext(p.uname, "praveenpugazh84@gmail.com");
+		filltext(p.pass, "Praveen@123");
+		click(p.loginbt);
 	}
 	
-	@Ignore
-	@Test
-	public void test1() {
-		System.out.println("this is test 1");
-	}
+	
 	
 	@Before
 	public void befmethod() {
-	System.out.println("this run before test");
+		Date d = new Date();
+		System.out.println("start time:"+d);
 
 	}
 	
 	@After
 	public void Aftmethod() {
-	System.out.println("this run after test");
+		Date d = new Date();
+		System.out.println("end time:"+d);
 
 	}
 	
 	@BeforeClass
 	public static void first() {
-	System.out.println("This run top first");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}
 	
 	@AfterClass
 	public static void last() {
-	System.out.println("this run last");
+		driver.close();
 
 	}
 

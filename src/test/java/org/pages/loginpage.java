@@ -1,11 +1,11 @@
 package org.pages;
 
-import org.base.Baseclass;
-import org.demo.Trial;
+
+import org.demo.Testclass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 
-public class loginpage extends Trial{
+public class loginpage extends Testclass{
 
 	public loginpage() {
 		PageFactory.initElements(driver, this);

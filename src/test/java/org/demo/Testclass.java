@@ -10,7 +10,7 @@ import org.pages.loginpage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class Trial extends Baseclass{
+public class Testclass extends Baseclass{
 
 	@Test
 	public void test() {
